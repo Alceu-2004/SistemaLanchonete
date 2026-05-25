@@ -1,10 +1,10 @@
 public class Cliente {
 
-    String n;
-    boolean v;
+    String nome;
+    boolean vip;
 
-    public Cliente(String n, boolean v) {
-        this.n = n;
-        this.v = v;
+    public Cliente(String nome, boolean vip) {
+        this.nome = nome;
+        this.vip = vip;
     }
 }

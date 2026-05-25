@@ -1,10 +1,10 @@
 public class Produto {
 
-    int t;
-    int q;
+    int tipo;
+    int quantidade;
 
-    public Produto(int t, int q) {
-        this.t = t;
-        this.q = q;
+    public Produto(int tipo, int quantidade) {
+        this.tipo = tipo;
+        this.quantidade = quantidade;
     }
 }

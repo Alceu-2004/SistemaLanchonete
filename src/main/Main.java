@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cliente cliente = new Cliente("Alceu", true);
+        Cliente cliente = new Cliente("Rafael", true);
 
         Produto produto = new Produto(1, 2);
 
