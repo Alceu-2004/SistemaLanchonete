@@ -30,37 +30,37 @@ public class SistemaPedidos {
 
     private double calcularValor(Pedido pedido) {
 
-        double total = 0;
+        switch (pedido.produto.tipo) {
 
-        if (pedido.produto.tipo == 1) {
-            total = pedido.produto.quantidade * PRECO_HAMBURGUER;
+            case 1:
+                return pedido.produto.quantidade * PRECO_HAMBURGUER;
+
+            case 2:
+                return pedido.produto.quantidade * PRECO_PIZZA;
+
+            case 3:
+                return pedido.produto.quantidade * PRECO_COMBO;
+
+            default:
+                return 0;
         }
-
-        if (pedido.produto.tipo == 2) {
-            total = pedido.produto.quantidade * PRECO_PIZZA;
-        }
-
-        if (pedido.produto.tipo == 3) {
-            total = pedido.produto.quantidade * PRECO_COMBO;
-        }
-
-        return total;
     }
 
     private String obterDescricaoProduto(int tipo) {
 
-        if (tipo == 1) {
-            return "Hamburguer";
-        }
+        switch (tipo) {
 
-        if (tipo == 2) {
-            return "Pizza";
-        }
+            case 1:
+                return "Hamburguer";
 
-        if (tipo == 3) {
-            return "Combo";
-        }
+            case 2:
+                return "Pizza";
 
-        return "Produto inválido";
+            case 3:
+                return "Combo";
+
+            default:
+                return "Produto inválido";
+        }
     }
 }
