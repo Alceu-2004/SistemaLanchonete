@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cliente cliente = new Cliente("Rafael", true);
+        Cliente cliente = new Cliente("Alceu", true);
 
         Produto produto = new Produto(1, 2);
 
@@ -10,6 +10,6 @@ public class Main {
 
         SistemaPedidos sistema = new SistemaPedidos();
 
-        sistema.p(pedido);
+        sistema.processarPedido(pedido);
     }
 }

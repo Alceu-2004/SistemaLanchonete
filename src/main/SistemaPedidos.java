@@ -1,6 +1,6 @@
 public class SistemaPedidos {
 
-    public void p(Pedido pedido) {
+    public void processarPedido(Pedido pedido) {
 
         double total = 0;
 
