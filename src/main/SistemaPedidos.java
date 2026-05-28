@@ -7,6 +7,29 @@ public class SistemaPedidos {
 
     public void processarPedido(Pedido pedido) {
 
+        double total = calcularValor(pedido);
+
+        if (pedido.cliente.vip == true) {
+            total = total - (total * DESCONTO_VIP);
+        }
+
+        System.out.println("Cliente: " + pedido.cliente.nome);
+
+        System.out.println("Produto: " + obterDescricaoProduto(pedido.produto.tipo));
+
+        System.out.println("Quantidade: " + pedido.produto.quantidade);
+
+        if (pedido.cliente.vip == true) {
+            System.out.println("Cliente VIP");
+        } else {
+            System.out.println("Cliente Normal");
+        }
+
+        System.out.println("Valor Total: " + total);
+    }
+
+    private double calcularValor(Pedido pedido) {
+
         double total = 0;
 
         if (pedido.produto.tipo == 1) {
@@ -21,32 +44,23 @@ public class SistemaPedidos {
             total = pedido.produto.quantidade * PRECO_COMBO;
         }
 
-        if (pedido.cliente.vip == true) {
-            total = total - (total * DESCONTO_VIP);
+        return total;
+    }
+
+    private String obterDescricaoProduto(int tipo) {
+
+        if (tipo == 1) {
+            return "Hamburguer";
         }
 
-        System.out.println("Cliente: " + pedido.cliente.nome);
-
-        if (pedido.produto.tipo == 1) {
-            System.out.println("Produto: Hamburguer");
+        if (tipo == 2) {
+            return "Pizza";
         }
 
-        if (pedido.produto.tipo == 2) {
-            System.out.println("Produto: Pizza");
+        if (tipo == 3) {
+            return "Combo";
         }
 
-        if (pedido.produto.tipo == 3) {
-            System.out.println("Produto: Combo");
-        }
-
-        System.out.println("Quantidade: " + pedido.produto.quantidade);
-
-        if (pedido.cliente.vip == true) {
-            System.out.println("Cliente VIP");
-        } else {
-            System.out.println("Cliente Normal");
-        }
-
-        System.out.println("Valor Total: " + total);
+        return "Produto inválido";
     }
 }
