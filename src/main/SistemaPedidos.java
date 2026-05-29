@@ -9,7 +9,7 @@ public class SistemaPedidos {
 
         double total = calcularValor(pedido);
 
-        if (pedido.cliente.vip == true) {
+        if (pedido.cliente.vip) {
             total = total - (total * DESCONTO_VIP);
         }
 
@@ -19,7 +19,7 @@ public class SistemaPedidos {
 
         System.out.println("Quantidade: " + pedido.produto.quantidade);
 
-        if (pedido.cliente.vip == true) {
+        if (pedido.cliente.vip) {
             System.out.println("Cliente VIP");
         } else {
             System.out.println("Cliente Normal");
@@ -30,37 +30,21 @@ public class SistemaPedidos {
 
     private double calcularValor(Pedido pedido) {
 
-        switch (pedido.produto.tipo) {
-
-            case 1:
-                return pedido.produto.quantidade * PRECO_HAMBURGUER;
-
-            case 2:
-                return pedido.produto.quantidade * PRECO_PIZZA;
-
-            case 3:
-                return pedido.produto.quantidade * PRECO_COMBO;
-
-            default:
-                return 0;
-        }
+        return switch (pedido.produto.tipo) {
+            case 1 -> pedido.produto.quantidade * PRECO_HAMBURGUER;
+            case 2 -> pedido.produto.quantidade * PRECO_PIZZA;
+            case 3 -> pedido.produto.quantidade * PRECO_COMBO;
+            default -> 0;
+        };
     }
 
     private String obterDescricaoProduto(int tipo) {
 
-        switch (tipo) {
-
-            case 1:
-                return "Hamburguer";
-
-            case 2:
-                return "Pizza";
-
-            case 3:
-                return "Combo";
-
-            default:
-                return "Produto inválido";
-        }
+        return switch (tipo) {
+            case 1 -> "Hamburguer";
+            case 2 -> "Pizza";
+            case 3 -> "Combo";
+            default -> "Produto inválido";
+        };
     }
 }
