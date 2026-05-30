@@ -19,19 +19,7 @@ public class SistemaPedidos {
                 pedido.cliente.vip
         );
 
-        System.out.println("Cliente: " + pedido.cliente.nome);
-
-        System.out.println("Produto: " + obterDescricaoProduto(pedido.produto.tipo));
-
-        System.out.println("Quantidade: " + pedido.produto.quantidade);
-
-        if (pedido.cliente.vip == true) {
-            System.out.println("Cliente VIP");
-        } else {
-            System.out.println("Cliente Normal");
-        }
-
-        System.out.println("Valor Total: " + total);
+        exibirInformacoesPedido(pedido, total);
     }
 
     private double calcularValor(Pedido pedido) {
@@ -68,5 +56,28 @@ public class SistemaPedidos {
             default:
                 return "Produto inválido";
         }
+    }
+
+    private void exibirInformacoesPedido(Pedido pedido, double total) {
+
+        System.out.println("Cliente: " + pedido.cliente.nome);
+
+        System.out.println(
+                "Produto: " +
+                obterDescricaoProduto(pedido.produto.tipo)
+        );
+
+        System.out.println(
+                "Quantidade: " +
+                pedido.produto.quantidade
+        );
+
+        System.out.println(
+                pedido.cliente.vip
+                        ? "Cliente VIP"
+                        : "Cliente Normal"
+        );
+
+        System.out.println("Valor Total: " + total);
     }
 }
